@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>&Ocy;&tcy;&chcy;&iecy;&tcy; &pcy;&ocy; &lcy;&acy;&bcy;&ocy;&rcy;&acy;&tcy;&ocy;&rcy;&ncy;&ocy;&jcy; &rcy;&acy;&bcy;&ocy;&tcy;&iecy; &pcy;&ocy; &icy;&mcy;&icy;&tcy;&acy;&tscy;&icy;&ocy;&ncy;&ncy;&ocy;&mcy;&ucy; &mcy;&ocy;&dcy;&iecy;&lcy;&icy;&rcy;&ocy;&vcy;&acy;&ncy;&icy;&yucy;</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="отчет-по-лабораторной-работе-по-имитационному-моделированию">Отчет по лабораторной работе по имитационному моделированию</h1>
+<h2 id="титульный-лист">Титульный лист</h2>
+<p>ФИО студента: Ларина Наталья Денисовна<br>
+Группа: НФИбд-01-23<br>
+№ студенчекского: 1132236025<br>
+Название работы: Моделирование экспоненциального роста</p>
+<hr>
+<p>Дата сдачи: 21 февраля 2026 г</p>
+<hr>
+<p>Москва 2025</p>
+<div style="page-break-after: always;"></div>
+<h1 id="введение">Введение</h1>
+<p>Цель данной лабораторной работы — изучение модели экспоненциального роста, её реализация на языке Julia с использованием пакета <code>DifferentialEquations.jl</code> и анализ полученных результатов.</p>
+<h1 id="теоретическая-часть">Теоретическая часть</h1>
+<h2 id="описание-модели">Описание модели</h2>
+<p>Экспоненциальный рост — это процесс, при котором скорость изменения величины пропорциональна её текущему значению. Математически это выражается дифференциальным уравнением:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi>d</mi><mi>u</mi></mrow><mrow><mi>d</mi><mi>t</mi></mrow></mfrac><mo>=</mo><mi>α</mi><mi>u</mi><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">\frac{du}{dt} = \alpha u, 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="mord mathnormal">t</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal">d</span><span class="mord mathnormal">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">αu</span><span class="mpunct">,</span></span></span></span></span></p>
+<p>где:</p>
+<ul>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>u</mi></mrow><annotation encoding="application/x-tex">u</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal">u</span></span></span></span> — текущее значение (популяция, капитал и т.д.);</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi></mrow><annotation encoding="application/x-tex">t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6151em;"></span><span class="mord mathnormal">t</span></span></span></span> — время;</li>
+<li><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span></span> — константа скорости роста (если <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&gt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha &gt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&gt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> — рост, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>&lt;</mo><mn>0</mn></mrow><annotation encoding="application/x-tex">\alpha &lt; 0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0</span></span></span></span> — затухание).</li>
+</ul>
+<p>Решение уравнения имеет вид:</p>
+<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>u</mi><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>u</mi><mn>0</mn></msub><msup><mi>e</mi><mrow><mi>α</mi><mi>t</mi></mrow></msup><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">u(t) = u_0 e^{\alpha t}, 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">u</span><span class="mopen">(</span><span class="mord mathnormal">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1.038em;vertical-align:-0.1944em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8436em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.0037em;">α</span><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span></span></span></span></span></p>
+<p>где <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mn>0</mn></msub></mrow><annotation encoding="application/x-tex">u_0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> — начальное значение.</p>
+<h2 id="характеристики">Характеристики</h2>
+<ul>
+<li><strong>Время удвоения</strong> — время, за которое величина увеличивается вдвое:<p class="katex-block"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>T</mi><mn>2</mn></msub><mo>=</mo><mfrac><mrow><mi>ln</mi><mo>⁡</mo><mn>2</mn></mrow><mi>α</mi></mfrac><mi mathvariant="normal">.</mi></mrow><annotation encoding="application/x-tex">T_2 = \frac{\ln 2}{\alpha}. 
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:-0.1389em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:2.0574em;vertical-align:-0.686em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3714em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mop">ln</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mord">.</span></span></span></span></span></p>
+</li>
+<li>Модель применима в биологии (рост популяции бактерий), финансах (сложные проценты), эпидемиологии (начальная фаза эпидемии) и др.</li>
+</ul>
+<h2 id="ограничения">Ограничения</h2>
+<p>В реальности экспоненциальный рост не может продолжаться бесконечно из-за ограниченности ресурсов. Модель является идеализированной и служит основой для более сложных моделей (например, логистической).</p>
+<h1 id="реализация-на-julia">Реализация на Julia</h1>
+<p>Для реализации использовался пакет <code>DifferentialEquations.jl</code>. Код оформлен в виде литератного скрипта <code>01_exponential_growth_lit.jl</code>, который затем был обработан утилитой <code>tangle.jl</code> для генерации чистого скрипта, Quarto-документа и Jupyter-ноутбука.</p>
+<h2 id="параметры-модели">Параметры модели</h2>
+<ul>
+<li>Начальная популяция <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>u</mi><mn>0</mn></msub><mo>=</mo><mn>1.0</mn></mrow><annotation encoding="application/x-tex">u_0 = 1.0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">u</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">1.0</span></span></span></span></li>
+<li>Коэффициент роста <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi><mo>=</mo><mn>0.3</mn></mrow><annotation encoding="application/x-tex">\alpha = 0.3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.4306em;"></span><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">0.3</span></span></span></span></li>
+<li>Интервал времени <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>t</mi><mo>∈</mo><mo stretchy="false">[</mo><mn>0</mn><mo separator="true">,</mo><mn>10</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">t \in [0, 10]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6542em;vertical-align:-0.0391em;"></span><span class="mord mathnormal">t</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">0</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord">10</span><span class="mclose">]</span></span></span></span></li>
+</ul>
+<h1 id="настройка-git">Настройка git</h1>
+<p><img src="file:////Users/natalialarina/Downloads/1.png" alt=""></p>
+<h1 id="создание-ключей-ssh-и-gpg">Создание ключей ssh и gpg</h1>
+<p><img src="file:////Users/natalialarina/Downloads/2.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/3.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/4.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/5.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/6.png" alt=""></p>
+<h1 id="создание-рабочего-пространства-для-лабораторных-работ">Создание рабочего пространства для лабораторных работ</h1>
+<p><img src="file:////Users/natalialarina/Downloads/7.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/8.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/9.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/10.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/11.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/12.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/13.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/14.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/15.png" alt=""></p>
+<h1 id="создание-проекта-drwatson-для-лабораторных">Создание проекта DrWatson для лабораторных</h1>
+<p><img src="file:////Users/natalialarina/Downloads/16.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/17.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/18.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/19.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/20.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/21.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/22.png" alt=""></p>
+<p><img src="file:////Users/natalialarina/Downloads/23.png" alt=""></p>
+<h2 id="выводы">Выводы</h2>
+<p>В ходе выполнения лабораторной работы была успешно реализована и исследована модель экспоненциального роста с использованием языка Julia и современных инструментов научного программирования.</p>
+<ol>
+<li>
+<p><strong>Достижение цели работы</strong></p>
+<ul>
+<li>Реализована математическая модель – дифференциальное уравнение (\frac{du}{dt} = \alpha u) решено численно с помощью пакета <code>DifferentialEquations.jl</code>. Полученное решение (u(t) = u_0 e^{\alpha t}) полностью совпадает с аналитической формулой, что подтверждает корректность численного метода.</li>
+<li>Проведён анализ – вычислено время удвоения (T_2 = \ln 2 / \alpha), которое оказалось постоянным ((\approx 2.31) при (\alpha = 0.3)), что является ключевой характеристикой экспоненциального роста.</li>
+</ul>
+</li>
+<li>
+<p><strong>Освоение инструментов и подходов</strong></p>
+<ul>
+<li><strong>Организация проекта с DrWatson</strong> – создана структура проекта, включающая папки для кода (<code>src</code>), данных (<code>data</code>), скриптов (<code>scripts</code>), графиков (<code>plots</code>) и документации. Это обеспечило воспроизводимость и порядок в работе.</li>
+<li><strong>Литературное программирование (Literate)</strong> – скрипт <code>01_exponential_growth_lit.jl</code> был написан в стиле, объединяющем код и пояснения. С помощью утилиты <code>tangle.jl</code> из него сгенерированы чистый исполняемый скрипт, документ Quarto (<code>.qmd</code>) и Jupyter notebook (<code>.ipynb</code>). Такой подход позволяет легко создавать отчёты и повторно использовать код.</li>
+<li><strong>Генерация отчёта в Quarto</strong> – настроена интеграция Julia с Quarto через специально созданное ядро Jupyter (<code>julia-project</code>), что позволило включать выполняемый код прямо в отчёт и получать итоговый HTML-документ с графиками и таблицами.</li>
+</ul>
+</li>
+<li>
+<p><strong>Анализ полученных результатов</strong></p>
+<ul>
+<li>Численное решение визуализировано – график экспоненты имеет характерный изгиб, соответствующий ускорению роста.</li>
+<li>Таблица данных (первые 5 строк) демонстрирует начальные значения и подтверждает корректность вычислений.</li>
+<li>Время удвоения, рассчитанное по формуле, совпадает с наблюдаемым на графике: через примерно 2.3 единицы времени популяция удваивается, что легко проверить по таблице (например, значение (u \approx 2.0) при (t \approx 2.31)).</li>
+</ul>
+</li>
+<li>
+<p><strong>Выявленные особенности и ограничения модели</strong></p>
+<ul>
+<li>Модель экспоненциального роста адекватно описывает процессы с неограниченными ресурсами (например, размножение бактерий в питательной среде, начисление сложных процентов).</li>
+<li>Однако в реальных системах рост всегда ограничен внешними факторами, поэтому экспоненциальная модель применима лишь на начальных этапах. В дальнейшем её можно усложнить до логистической (с учётом ёмкости среды), что является естественным продолжением работы.</li>
+</ul>
+</li>
+<li>
+<p><strong>Приобретённые навыки</strong></p>
+<ul>
+<li>Уверенное использование пакетов <code>DifferentialEquations.jl</code>, <code>Plots.jl</code>, <code>DataFrames.jl</code>.</li>
+<li>Настройка и активация проектов в Julia (<code>Project.toml</code>, <code>Manifest.toml</code>).</li>
+<li>Интеграция Julia с внешними инструментами (Jupyter, Quarto).</li>
+<li>Оформление отчётов в формате Markdown/Quarto с включением живого кода.</li>
+</ul>
+</li>
+</ol>
+<h3 id="заключение">Заключение</h3>
+<p>Работа выполнена в полном объёме, цель достигнута. Полученные результаты могут служить основой для дальнейшего изучения более сложных моделей динамики систем, а освоенные инструменты будут полезны при выполнении последующих лабораторных работ и научных проектов.</p>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
