@@ -1,10 +1,10 @@
 ---
 ## Author
 author:
-  name: Дмитрий Сергеевич Кулябов
-  degrees: DSc
+  name: Ларина Наталья Денисовна
+  degrees: bachelor's degree
   orcid: 0000-0002-0877-7063
-  email: kulyabov-ds@rudn.ru
+  email: 1132236025@rudn.ru
   affiliation:
     - name: Российский университет дружбы народов
       country: Российская Федерация
@@ -12,7 +12,7 @@ author:
       city: Москва
       address: ул. Миклухо-Маклая, д. 6
 ## Title
-title: Структура научной презентации
+title: Модель экспоненциального роста
 subtitle: Простейший вариант
 license: CC BY
 date: today
@@ -26,8 +26,8 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 :::::::::::::: {.columns align=center}
 ::: {.column width="70%"}
 
-  * Кулябов Дмитрий Сергеевич
-  * д.ф.-м.н., профессор
+  * Ларина Наталья Денисовна
+  * студент группы нфибд-01-23
   * профессор кафедры теории вероятностей и кибербезопасности
   * Российский университет дружбы народов им. П. Лумумбы
   * [kulyabov-ds@rudn.ru](mailto:kulyabov-ds@rudn.ru)
@@ -36,7 +36,7 @@ date-format: "YYYY-MM-DD" # Example: 2025-09-06
 :::
 ::: {.column width="30%"}
 
-![](./image/kulyabov.jpg)
+![](./image/1.png)
 
 :::
 ::::::::::::::
