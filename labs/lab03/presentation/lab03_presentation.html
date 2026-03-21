@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lab03_presentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="%D1%82%D0%B8%D1%82%D1%83%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D1%81%D0%BB%D0%B0%D0%B9%D0%B4">Титульный слайд</h2>
+<p><strong>Лабораторная работа:</strong> агентное моделирование Daisyworld<br>
+<strong>Студент:</strong> Ларина Наталья Денисовна<br>
+<strong>Группа:</strong> НФИбд-01-23<br>
+<strong>№ студенческого:</strong> 1132236025</p>
+<!-- slide -->
+<h2 id="1-%D1%82%D0%B5%D0%BE%D1%80%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F-%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BA%D0%B0">1. Теоретическая справка</h2>
+<h3 id="11-%D0%B0%D0%B3%D0%B5%D0%BD%D1%82%D0%BD%D0%BE%D0%B5-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">1.1 Агентное моделирование</h3>
+<ul>
+<li><strong>ABM</strong> — метод исследования сложных систем</li>
+<li>Глобальное поведение возникает из взаимодействий автономных агентов</li>
+<li>Компоненты: агенты, среда, взаимодействия</li>
+<li>Ключевой принцип: <strong>эмерджентность</strong></li>
+</ul>
+<h3 id="12-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C-daisyworld">1.2 Модель Daisyworld</h3>
+<ul>
+<li>Предложена Джеймсом Лавлоком и Эндрю Уотсоном (1983)</li>
+<li>Два вида маргариток: чёрные (низкое альбедо) и белые (высокое альбедо)</li>
+<li>Саморегуляция температуры через обратную связь альбедо</li>
+</ul>
+<!-- slide -->
+<h2 id="%D1%80%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8-agentsjl-julia">Реализация модели (Agents.jl, Julia)</h2>
+<ul>
+<li>Пространство: 30×30, периодические границы</li>
+<li>Агенты: <code>Daisy</code> (тип, возраст, альбедо)</li>
+<li>Динамика:
+<ul>
+<li>Расчёт локальной температуры</li>
+<li>Диффузия тепла</li>
+<li>Старение и смертность</li>
+<li>Размножение в соседние пустые клетки</li>
+</ul>
+</li>
+<li>Параметры: <code>max_age</code>, <code>init_white</code>, сценарий светимости (<code>:ramp</code>)</li>
+</ul>
+<!-- slide -->
+<h2 id="2-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D1%8D%D0%BA%D1%81%D0%BF%D0%B5%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2">2. Результаты экспериментов</h2>
+<h3 id="21-%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F-%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF-324">2.1 Базовая визуализация (п. 3.2.4)</h3>
+<p><strong>Шаг 0</strong> – начальное состояние<br>
+<img src="daisy_step001.png" alt=""></p>
+<p><strong>Шаг 5</strong> – начало конкуренции<br>
+<img src="daisy_step005.png" alt=""></p>
+<p><strong>Шаг 40</strong> – квазистационарное состояние<br>
+<img src="daisy_step040.png" alt=""></p>
+<!-- slide -->
+<h2 id="22-%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F-%D0%BF-325">2.2 Анимация (п. 3.2.5)</h2>
+<ul>
+<li>Видео <code>simulation.mp4</code> (60 шагов)</li>
+<li>Наглядно видна колонизация пространства и температурная динамика</li>
+</ul>
+<!-- slide -->
+<h2 id="23-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0-%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BF-326">2.3 Динамика численности (п. 3.2.6)</h2>
+<ul>
+<li>1000 шагов, постоянная светимость</li>
+<li>Установление равновесия после 400 шагов</li>
+</ul>
+<p><img src="daisy_count.png" alt=""></p>
+<!-- slide -->
+<h2 id="24-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0-%D0%BF%D1%80%D0%B8-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B8-%D1%81%D0%B2%D0%B5%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8-%D0%BF-327">2.4 Динамика при изменении светимости (п. 3.2.7)</h2>
+<ul>
+<li>Сценарий <code>:ramp</code> (увеличение, затем уменьшение светимости)</li>
+<li>Температура остаётся почти постоянной</li>
+<li>Соотношение видов адаптируется к внешним изменениям</li>
+</ul>
+<p><img src="daisy_luminosity.png" alt=""></p>
+<!-- slide -->
+<h2 id="25-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BF-328%E2%80%933210">2.5 Параметрические исследования (пп. 3.2.8–3.2.10)</h2>
+<p>Варьируемые параметры:</p>
+<ul>
+<li><code>max_age</code> = 25, 40</li>
+<li><code>init_white</code> = 0.2, 0.8</li>
+</ul>
+<p>Для каждой комбинации построены:</p>
+<ul>
+<li>Визуализация на шагах 1, 5, 40</li>
+<li>Графики численности</li>
+<li>Графики динамики при изменении светимости</li>
+</ul>
+<!-- slide -->
+<h3 id="251-%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D1%8F-%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F-maxage25-initwhite02">2.5.1 Базовая визуализация (max_age=25, init_white=0.2)</h3>
+<table>
+<thead>
+<tr>
+<th>Шаг 1</th>
+<th>Шаг 5</th>
+<th>Шаг 40</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="daisyworld_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=25_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4_step01.png" alt=""></td>
+<td><img src="daisyworld_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=25_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4_step04.png" alt=""></td>
+<td><img src="daisyworld_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=25_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4_step40.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Вывод:</strong> быстрое установление равновесия, доминирование белых.</p>
+<!-- slide -->
+<h3 id="252-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0-%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%B2%D1%81%D0%B5-%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D0%B8">2.5.2 Динамика численности (все комбинации)</h3>
+<p><strong>max_age=25, init_white=0.2</strong><br>
+<img src="daisy-count_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=25_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<p><strong>max_age=25, init_white=0.8</strong><br>
+<img src="daisy-count_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.8_max_age=25_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<!-- slide -->
+<p><strong>max_age=40, init_white=0.2</strong><br>
+<img src="daisy-count_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=40_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<p><strong>max_age=40, init_white=0.8</strong><br>
+<img src="daisy-count_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.8_max_age=40_scenario=default_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<!-- slide -->
+<h3 id="253-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0-%D0%BF%D1%80%D0%B8-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B8-%D1%81%D0%B2%D0%B5%D1%82%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8-%D0%B2%D1%81%D0%B5-%D0%BA%D0%BE%D0%BC%D0%B1%D0%B8%D0%BD%D0%B0%D1%86%D0%B8%D0%B8">2.5.3 Динамика при изменении светимости (все комбинации)</h3>
+<p><strong>max_age=25, init_white=0.2</strong><br>
+<img src="daisy-luminosity_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=25_scenario=ramp_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<p><strong>max_age=25, init_white=0.8</strong><br>
+<img src="daisy-luminosity_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.8_max_age=25_scenario=ramp_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<!-- slide -->
+<p><strong>max_age=40, init_white=0.2</strong><br>
+<img src="daisy-luminosity_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.2_max_age=40_scenario=ramp_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<p><strong>max_age=40, init_white=0.8</strong><br>
+<img src="daisy-luminosity_albedo_black=0.25_albedo_white=0.75_init_black=0.2_init_white=0.8_max_age=40_scenario=ramp_seed=165_solar_change=0.005_solar_luminosity=1.0_surface_albedo=0.4.png" alt=""></p>
+<!-- slide -->
+<h2 id="3-%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5">3. Заключение</h2>
+<ul>
+<li>Модель демонстрирует <strong>эмерджентную саморегуляцию</strong> температуры</li>
+<li>Система устойчива к изменениям светимости (гомеостаз)</li>
+<li>Параметры <code>max_age</code> и <code>init_white</code> влияют на переходную динамику, но не нарушают равновесие</li>
+<li>Полученные графики и видео подтверждают гипотезу Геи</li>
+</ul>
+<p><strong>Исходный код и все материалы</strong> доступны в репозитории.</p>
+
+</body>
+</html>
