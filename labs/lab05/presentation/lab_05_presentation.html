@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lab_05_presentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="author">Author</h2>
+<p><strong>Author:</strong> Ларина Наталья Денисовна<br>
+<strong>Degrees:</strong> DSc<br>
+<strong>ORCID:</strong> 0000-0002-0877-7063<br>
+<strong>Email:</strong> 1132236025@rudn.ru<br>
+<strong>Affiliation:</strong></p>
+<ul>
+<li>Российский университет дружбы народов, Российская Федерация, 117198, Москва, ул. Миклухо-Маклая, д. 6</li>
+</ul>
+<h2 id="title">Title</h2>
+<p><strong>Title:</strong> Лабораторная работа 05<br>
+<strong>Subtitle:</strong> Простейший вариант<br>
+<strong>License:</strong> CC BY<br>
+<strong>Date:</strong> today<br>
+<strong>Date format:</strong> 2026-04-12</p>
+<h1 id="%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F">Информация</h1>
+<h2 id="%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%87%D0%B8%D0%BA">Докладчик</h2>
+<p><strong>Ларина Наталья Денисовна</strong></p>
+<ul>
+<li>студент 3 курса кафедры ММИИИ</li>
+<li>Российский университет дружбы народов им. П. Лумумбы</li>
+<li><a href="mailto:1132236025@rudn.ru">1132236025@rudn.ru</a></li>
+<li><a href="https://gitverse.ru/NatLarina">https://gitverse.ru/NatLarina</a></li>
+<li><a href="https://github.com/NatLarina">https://github.com/NatLarina</a></li>
+</ul>
+<h1 id="%D0%B2%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F-%D1%87%D0%B0%D1%81%D1%82%D1%8C">Вводная часть</h1>
+<h2 id="%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Актуальность</h2>
+<ul>
+<li>Сети Петри — мощный формализм для моделирования дискретных систем с параллельными процессами</li>
+<li>Позволяют анализировать проблемы синхронизации, взаимоблокировок и распределения ресурсов</li>
+<li>Задача &quot;Обедающих философов&quot; — классический пример проблем параллельного программирования</li>
+</ul>
+<h2 id="%D1%86%D0%B5%D0%BB%D0%B8-%D0%B8-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8">Цели и задачи</h2>
+<p><strong>Цель:</strong> освоение аппарата сетей Петри для моделирования параллельных процессов</p>
+<p><strong>Задачи:</strong></p>
+<ul>
+<li>Изучить основные понятия сетей Петри</li>
+<li>Реализовать модель &quot;Обедающих философов&quot; в Julia</li>
+<li>Провести анализ взаимоблокировок и голодания</li>
+<li>Освоить литературное программирование</li>
+</ul>
+<h2 id="%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B-%D0%B8-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B">Материалы и методы</h2>
+<ul>
+<li>Язык Julia</li>
+<li>Пакет Petri.jl для сетей Петри</li>
+<li>Пакет DrWatson.jl для организации проекта</li>
+<li>Пакет Literate.jl для литературного программирования</li>
+<li>Plots.jl / CairoMakie.jl для визуализации</li>
+<li>Quarto для отчётов</li>
+</ul>
+<hr>
+<h1 id="%D1%82%D0%B5%D0%BE%D1%80%D0%B5%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5-%D0%B2%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5">Теоретическое введение</h1>
+<h2 id="%D1%81%D0%B5%D1%82%D0%B8-%D0%BF%D0%B5%D1%82%D1%80%D0%B8-%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D0%BF%D0%BE%D0%BD%D1%8F%D1%82%D0%B8%D1%8F">Сети Петри: основные понятия</h2>
+<p><strong>Элементы сети Петри:</strong></p>
+<ul>
+<li><strong>Позиции</strong> (круги) — состояния системы или ресурсы</li>
+<li><strong>Переходы</strong> (прямоугольники) — события или действия</li>
+<li><strong>Дуги</strong> (стрелки) — связи между позициями и переходами</li>
+<li><strong>Фишки</strong> (точки) — наличие ресурсов или активность</li>
+</ul>
+<h2 id="%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0-%D1%81%D1%80%D0%B0%D0%B1%D0%B0%D1%82%D1%8B%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%B5%D1%80%D0%B5%D1%85%D0%BE%D0%B4%D0%B0">Правила срабатывания перехода</h2>
+<p><strong>Условие:</strong> каждая входная позиция должна содержать фишек не меньше кратности дуги</p>
+<p><strong>Результат:</strong></p>
+<ul>
+<li>Из входных позиций фишки изымаются</li>
+<li>В выходные позиции фишки добавляются</li>
+</ul>
+<h2 id="%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B0-%22%D0%BE%D0%B1%D0%B5%D0%B4%D0%B0%D1%8E%D1%89%D0%B8%D1%85-%D1%84%D0%B8%D0%BB%D0%BE%D1%81%D0%BE%D1%84%D0%BE%D0%B2%22">Задача &quot;Обедающих философов&quot;</h2>
+<p><strong>Условие:</strong></p>
+<ul>
+<li>N философов за круглым столом</li>
+<li>Между соседями — одна вилка</li>
+<li>Для еды нужны две вилки</li>
+</ul>
+<p><strong>Состояния философа:</strong> думает → голоден → ест</p>
+<h2 id="%D0%BF%D1%80%D0%BE%D0%B1%D0%BB%D0%B5%D0%BC%D1%8B-%D0%BF%D0%B0%D1%80%D0%B0%D0%BB%D0%BB%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D1%85-%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC">Проблемы параллельных систем</h2>
+<table>
+<thead>
+<tr>
+<th>Проблема</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Взаимоблокировка</strong></td>
+<td>Каждый взял по одной вилке и ждёт вторую</td>
+</tr>
+<tr>
+<td><strong>Голодание</strong></td>
+<td>Философ никогда не получает обе вилки</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Способы предотвращения:</strong></p>
+<ul>
+<li>Арбитр (центральный управляющий процесс)</li>
+<li>Асимметричное взятие вилок</li>
+<li>Ограничение количества едящих</li>
+</ul>
+<hr>
+<h1 id="%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Выполнение лабораторной работы</h1>
+<h2 id="%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D1%80%D0%B5%D0%BB%D0%B8%D0%B7%D0%B0">Создание релиза</h2>
+<p>Создан новый релиз v.5.0.0</p>
+<p><img src="image/1.png" alt="Создание нового релиза"></p>
+<h2 id="%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-julia">Настройка окружения Julia</h2>
+<p>Запуск Julia и установка пакетов</p>
+<p><img src="image/2.png" alt="Запуск Julia"></p>
+<p><img src="image/3.png" alt="Установка пакетов"></p>
+<h2 id="%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0-%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2-%D0%B4%D0%BB%D1%8F-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%BE%D0%B2">Установка пакетов для скриптов</h2>
+<p><img src="image/4.png" alt="Установка пакетов"></p>
+<p><img src="image/5.png" alt="Установка пакетов"></p>
+<p><img src="image/6.png" alt="Установка пакетов"></p>
+<p><img src="image/7.png" alt="Установка пакетов"></p>
+<h2 id="%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-diningphilosophersjl">Запуск скрипта dining_philosophers.jl</h2>
+<p><img src="image/8.png" alt="Запуск скрипта"></p>
+<p>График результатов моделирования с арбитром:</p>
+<p><img src="plots/arbiter_simulation.png" alt="График arbiter_simulation"></p>
+<h2 id="jupyter-notebook">Jupyter Notebook</h2>
+<p><img src="image/9.png" alt="Jupyter Notebook от скрипта"></p>
+<h2 id="%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-diningphilosophersanimationjl">Запуск скрипта dining_philosophers_animation.jl</h2>
+<p><img src="image/10.png" alt="Запуск скрипта анимации"></p>
+<p><img src="image/11.png" alt="Jupyter Notebook анимации"></p>
+<p><img src="image/12.png" alt="Результат анимации"></p>
+<h2 id="%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-diningphilosophersreportjl">Запуск скрипта dining_philosophers_report.jl</h2>
+<p><img src="image/13.png" alt="Запуск скрипта отчёта"></p>
+<p><img src="image/14.png" alt="Jupyter Notebook отчёта"></p>
+<p>График финального отчёта:</p>
+<p><img src="plots/final_report.png" alt="График final_report"></p>
+<h2 id="%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D0%BD%D1%8B%D1%85-%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%BE%D0%B2">Создание производных форматов</h2>
+<p>Установка пакетов для производных форматов:</p>
+<p><img src="image/15.png" alt="Установка пакетов"></p>
+<p>Создание производных форматов:</p>
+<p><img src="image/16.png" alt="Создание форматов"></p>
+<p><img src="image/17.png" alt="Создание форматов"></p>
+<p><img src="image/18.png" alt="Создание форматов"></p>
+<h2 id="%D0%BF%D1%80%D0%BE%D0%B2%D0%B5%D1%80%D0%BA%D0%B0-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D0%BE%D0%B2">Проверка результатов</h2>
+<p>Проверка созданных файлов в папке plots:</p>
+<p><img src="image/19.png" alt="Проверка plots"></p>
+<h2 id="%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-quarto">Настройка Quarto</h2>
+<p>Настройка _quarto.yml для поддержки Julia:</p>
+<p><img src="image/21.png" alt="Настройка _quarto.yml"></p>
+<p>Подключение файлов описания программ:</p>
+<p><img src="image/20.png" alt="Подключение файлов"></p>
+<hr>
+<h1 id="%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B">Результаты</h1>
+<h2 id="%D0%B8%D1%82%D0%BE%D0%B3%D0%B8-%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D1%8F">Итоги выполнения</h2>
+<ul>
+<li>Реализована модель &quot;Обедающих философов&quot; с помощью сетей Петри</li>
+<li>Проведён анализ взаимоблокировки и голодания</li>
+<li>Реализован механизм предотвращения deadlock через арбитра</li>
+<li>Построены графики состояния философов во времени</li>
+<li>Создана анимация процесса моделирования</li>
+</ul>
+<h2 id="%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B5-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5">Литературное программирование</h2>
+<ul>
+<li>Все скрипты оформлены в стиле Literate.jl</li>
+<li>Сгенерированы: чистый код, Jupyter Notebook, документация Quarto</li>
+<li>Документация интегрирована в итоговый отчёт</li>
+</ul>
+<hr>
+<h1 id="%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B">Выводы</h1>
+<h2 id="%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5-%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B">Основные результаты</h2>
+<ol>
+<li>
+<p><strong>Освоен аппарат сетей Петри</strong> — реализована модель задачи &quot;Обедающих философов&quot; с использованием пакета Petri.jl</p>
+</li>
+<li>
+<p><strong>Проведён анализ модели</strong> — выявлены проблемы взаимоблокировки и голодания, реализован механизм предотвращения deadlock</p>
+</li>
+<li>
+<p><strong>Выполнена визуализация</strong> — построены графики состояния философов, создана анимация процесса</p>
+</li>
+<li>
+<p><strong>Освоено литературное программирование</strong> — сгенерированы чистый код, Jupyter Notebook и документация Quarto</p>
+</li>
+<li>
+<p><strong>Создан интегрированный отчёт</strong> в Quarto с результатами моделирования</p>
+</li>
+</ol>
+<hr>
+<h1 id="%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9-%D1%81%D0%BB%D0%B0%D0%B9%D0%B4">Итоговый слайд</h1>
+<ul>
+<li><strong>Сети Петри</strong> — эффективный инструмент для моделирования параллельных процессов</li>
+<li><strong>Задача &quot;Обедающих философов&quot;</strong> — классический пример проблем синхронизации</li>
+<li><strong>Литературное программирование</strong> — обеспечивает воспроизводимость и документированность кода</li>
+<li><strong>Quarto</strong> — позволяет создавать интегрированные отчёты с исполняемым кодом</li>
+</ul>
+<hr>
+<h1 id="%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D1%8B">Список литературы</h1>
+<ol>
+<li>Имитационное моделирование. Практикум<br>
+<a href="https://esystem.rudn.ru/pluginfile.php/3094278/modeling-lab.pdf">https://esystem.rudn.ru/pluginfile.php/3094278/modeling-lab.pdf</a></li>
+</ol>
+
+</body>
+</html>
