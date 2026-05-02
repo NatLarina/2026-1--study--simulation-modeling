@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>lab06_presentation.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<hr>
+<h2 id="author">Author</h2>
+<p>author:
+name: Ларина Наталья Денисовна
+degrees: DSc
+orcid: 0000-0002-0877-7063
+email: 1132236025@rudn.ru
+affiliation:
+- name: Российский университет дружбы народов
+country: Российская Федерация
+postal-code: 117198
+city: Москва
+address: ул. Миклухо-Маклая, д. 6</p>
+<h2 id="title">Title</h2>
+<h2 id="title-%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%B0%D1%8F-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0-06subtitle-%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%B5%D0%B9%D1%88%D0%B8%D0%B9-%D0%B2%D0%B0%D1%80%D0%B8%D0%B0%D0%BD%D1%82license-cc-bydate-todaydate-format-%222026-04-25%22--example-2025-09-06">title: Лабораторная работа 06
+subtitle: Простейший вариант
+license: CC BY
+date: today
+date-format: &quot;2026-04-25&quot; # Example: 2025-09-06</h2>
+<h1 id="%D0%B8%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%86%D0%B8%D1%8F">Информация</h1>
+<h2 id="%D0%B4%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D1%87%D0%B8%D0%BA">Докладчик</h2>
+<div class="{.columns align=center}">
+<div class="{.column width="70%"}">
+<ul>
+<li>Студент: Ларина Наталья Денисовна</li>
+<li>Группа: НФИбд-01-23</li>
+<li>Кафедра теории вероятностей и кибербезопасности</li>
+<li>Российский университет дружбы народов им. П. Лумумбы</li>
+<li><a href="1132236025@rudn.ru">student@rudn.ru</a></li>
+</ul>
+</div>
+<div class="{.column width="30%"}">
+</div>
+</div>
+<h1 id="%D0%B2%D0%B2%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F-%D1%87%D0%B0%D1%81%D1%82%D1%8C">Вводная часть</h1>
+<h2 id="%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Актуальность</h2>
+<ul>
+<li>Моделирование эпидемий — важная задача для прогнозирования распространения инфекций</li>
+<li>Сети Петри позволяют наглядно описывать параллельные и асинхронные процессы</li>
+<li>Сравнение детерминированного и стохастического подходов даёт полную картину динамики</li>
+<li>Необходима автоматизация расчётов и визуализации для быстрого анализа сценариев</li>
+</ul>
+<h2 id="%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82-%D0%B8-%D0%BF%D1%80%D0%B5%D0%B4%D0%BC%D0%B5%D1%82-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F">Объект и предмет исследования</h2>
+<ul>
+<li>Объект: эпидемиологическая модель SIR (Susceptible–Infectious–Recovered)</li>
+<li>Предмет: реализация модели SIR с использованием сетей Петри в языке Julia</li>
+</ul>
+<h2 id="%D1%86%D0%B5%D0%BB%D0%B8-%D0%B8-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8">Цели и задачи</h2>
+<ul>
+<li>Реализовать модель SIR на сетях Петри</li>
+<li>Выполнить детерминированное и стохастическое моделирование</li>
+<li>Исследовать чувствительность модели к параметру заражения β</li>
+<li>Создать анимацию динамики эпидемии</li>
+<li>Преобразовать код в литературный стиль и сгенерировать отчётные форматы</li>
+</ul>
+<h2 id="%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B-%D0%B8-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B">Материалы и методы</h2>
+<ul>
+<li>Язык программирования: Julia</li>
+<li>Пакеты: <code>AlgebraicPetri</code>, <code>OrdinaryDiffEq</code>, <code>Plots</code>, <code>DataFrames</code>, <code>Random</code></li>
+<li>Детерминированный метод: решение ОДУ (Tsit5)</li>
+<li>Стохастический метод: прямой алгоритм Гиллеспи (SSA)</li>
+<li>Визуализация: Graphviz, Plots</li>
+<li>Генерация отчётов: Literate, Jupyter Notebook, Quarto</li>
+</ul>
+<h1 id="%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D0%B8-sir">Создание модели SIR</h1>
+<h2 id="%D1%81%D0%B5%D1%82%D1%8C-%D0%BF%D0%B5%D1%82%D1%80%D0%B8-%D0%B4%D0%BB%D1%8F-sir">Сеть Петри для SIR</h2>
+<ul>
+<li>Состояния: S (восприимчивые), I (инфицированные), R (выздоровевшие)</li>
+<li>Переходы:
+<ul>
+<li><code>infection</code>: S + I → I + I (скорость β)</li>
+<li><code>recovery</code>: I → R (скорость γ)</li>
+</ul>
+</li>
+<li>Начальная маркировка: S=990, I=10, R=0</li>
+</ul>
+<h2 id="%D0%B4%D0%B5%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%B0%D1%8F-%D1%81%D0%B8%D0%BC%D1%83%D0%BB%D1%8F%D1%86%D0%B8%D1%8F">Детерминированная симуляция</h2>
+<ul>
+<li>Строится система обыкновенных дифференциальных уравнений по закону действующих масс</li>
+<li>Решается численно методом Tsit5</li>
+<li>Результат: плавные кривые S(t), I(t), R(t)</li>
+</ul>
+<h2 id="%D1%81%D1%82%D0%BE%D1%85%D0%B0%D1%81%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B0%D1%8F-%D1%81%D0%B8%D0%BC%D1%83%D0%BB%D1%8F%D1%86%D0%B8%D1%8F">Стохастическая симуляция</h2>
+<ul>
+<li>Используется прямой метод Гиллеспи</li>
+<li>На каждом шаге вычисляются пропускные способности:
+<ul>
+<li><code>a_inf = β * S * I</code></li>
+<li><code>a_rec = γ * I</code></li>
+</ul>
+</li>
+<li>Случайным образом выбирается событие и время до него</li>
+<li>Результат: ступенчатые траектории с флуктуациями</li>
+</ul>
+<h1 id="%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">Выполнение лабораторной работы</h1>
+<h2 id="1-%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BD%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%80%D0%B5%D0%BB%D0%B8%D0%B7%D0%B0">1. Создание нового релиза</h2>
+<p>Создан релиз v.6.0.0, обновлена информация по v.4.0.0</p>
+<h2 id="2-%D0%BD%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-julia">2. Настройка окружения Julia</h2>
+<p>Установлены необходимые пакеты: <code>AlgebraicPetri</code>, <code>OrdinaryDiffEq</code>, <code>Plots</code>, <code>DataFrames</code>, <code>Random</code></p>
+<h2 id="3-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D0%B0-sirpetrirunjl">3. Запуск базового скрипта <code>sirpetri_run.jl</code></h2>
+<p>Выполнена детерминированная и стохастическая симуляция (β=0.3, γ=0.1, tmax=100)</p>
+<h2 id="%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D0%B1%D0%B0%D0%B7%D0%BE%D0%B2%D0%BE%D0%B3%D0%BE-%D0%BF%D1%80%D0%BE%D0%B3%D0%BE%D0%BD%D0%B0">Результаты базового прогона</h2>
+<p><strong>Детерминированный график</strong> – классический пик эпидемии</p>
+<p><img src="1.png" alt=""></p>
+<p><strong>Стохастический график</strong> – видны случайные флуктуации</p>
+<p><img src="2.png" alt=""></p>
+<h2 id="4-%D1%81%D0%BA%D0%B0%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%BF%D0%B0%D1%80%D0%B0%D0%BC%D0%B5%D1%82%D1%80%D0%B0-%CE%B2-sirpetriscanparametersjl">4. Сканирование параметра β (<code>sirpetri_scan_parameters.jl</code>)</h2>
+<ul>
+<li>β от 0.1 до 0.8 с шагом 0.05</li>
+<li>Для каждого β вычислен пик I и конечное R</li>
+</ul>
+<p><img src="3.png" alt=""></p>
+<p><img src="4.png" alt=""></p>
+<h2 id="%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D1%87%D1%83%D0%B2%D1%81%D1%82%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D0%B8-%D0%BA-%CE%B2">График чувствительности к β</h2>
+<p>При малых β эпидемии нет. С ростом β пик I и конечное R растут до насыщения.</p>
+<p><img src="6.png" alt=""></p>
+<h2 id="5-%D0%B0%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B8-sirpetrianimatejl">5. Анимация динамики (<code>sirpetri_animate.jl</code>)</h2>
+<p>Создан GIF-файл, показывающий изменение S, I, R во времени</p>
+<h2 id="6-%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9-%D0%BE%D1%82%D1%87%D1%91%D1%82-sirpetrireportjl">6. Итоговый отчёт (<code>sirpetri_report.jl</code>)</h2>
+<p>Построены сравнительные графики:</p>
+<ul>
+<li>I(t) детерминированный vs стохастический</li>
+<li>Зависимость пика I от β</li>
+</ul>
+<p><img src="5.png" alt=""></p>
+<h2 id="%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B2-%D0%BB%D0%B8%D1%82%D0%B5%D1%80%D0%B0%D1%82%D1%83%D1%80%D0%BD%D1%8B%D0%B9-%D1%81%D1%82%D0%B8%D0%BB%D1%8C">Преобразование в литературный стиль</h2>
+<p>С помощью пакета <code>Literate</code> созданы:</p>
+<ul>
+<li>Чистый код (.jl)</li>
+<li>Jupyter Notebook (.ipynb)</li>
+<li>Документация Quarto (.qmd)</li>
+</ul>
+<h2 id="%D0%B8%D0%BD%D1%82%D0%B5%D0%B3%D1%80%D0%B0%D1%86%D0%B8%D1%8F-%D0%B2-%D0%BE%D1%82%D1%87%D1%91%D1%82-quarto">Интеграция в отчёт Quarto</h2>
+<p>В файл <code>_quarto.yml</code> добавлена поддержка Julia, в отчёт включены сгенерированные .qmd-файлы</p>
+<pre class="hljs"><code><div><span class="hljs-attr">execute:</span>
+  <span class="hljs-attr">echo:</span> <span class="hljs-literal">true</span>
+  <span class="hljs-attr">eval:</span> <span class="hljs-literal">true</span>
+</div></code></pre>
+<h1 id="%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B">Результаты</h1>
+<h2 id="%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D1%8B">Полученные форматы</h2>
+<ul>
+<li>Детерминированная и стохастическая симуляции дают согласованные результаты при большой популяции</li>
+<li>Параметр β имеет пороговый характер: при малых значениях эпидемия не возникает</li>
+<li>Создана анимация, наглядно показывающая волну инфекции</li>
+<li>Код успешно преобразован в литературный стиль и в форматы .ipynb, .qmd</li>
+</ul>
+<h1 id="%D1%8D%D0%BB%D0%B5%D0%BC%D0%B5%D0%BD%D1%82%D1%8B-%D0%BF%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D0%B8">Элементы презентации</h1>
+<h2 id="%D0%B0%D0%BA%D1%82%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D0%BE%D1%81%D1%82%D1%8C">Актуальность</h2>
+<ul>
+<li>Модель SIR — классическая основа для эпидемиологического прогнозирования</li>
+<li>Сети Петри удобны для параллельных процессов и проверки моделей</li>
+<li>Детерминированный и стохастический подходы дополняют друг друга</li>
+<li>Литературное программирование повышает воспроизводимость исследований</li>
+</ul>
+<h2 id="%D1%86%D0%B5%D0%BB%D0%B8-%D0%B8-%D0%B7%D0%B0%D0%B4%D0%B0%D1%87%D0%B8-%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80">Цели и задачи (повтор)</h2>
+<ul>
+<li>Реализовать модель SIR на сетях Петри в Julia</li>
+<li>Провести два типа симуляции и сравнить их</li>
+<li>Исследовать чувствительность к β</li>
+<li>Автоматизировать генерацию отчётов</li>
+</ul>
+<h2 id="%D0%BC%D0%B0%D1%82%D0%B5%D1%80%D0%B8%D0%B0%D0%BB%D1%8B-%D0%B8-%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B-%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80">Материалы и методы (повтор)</h2>
+<ul>
+<li>Julia + пакеты научных вычислений</li>
+<li>Детерминистика: ODE (Tsit5)</li>
+<li>Стохастика: алгоритм Гиллеспи</li>
+<li>Визуализация: Plots, Graphviz</li>
+<li>Генерация отчётов: Literate, Jupyter, Quarto</li>
+</ul>
+<h2 id="%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D0%BD%D0%B8%D0%B5-%D0%B8%D1%81%D1%81%D0%BB%D0%B5%D0%B4%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80">Содержание исследования (повтор)</h2>
+<ol>
+<li>Построение сети Петри</li>
+<li>Детерминированная и стохастическая симуляции</li>
+<li>Сканирование параметра β</li>
+<li>Создание анимации</li>
+<li>Формирование итоговых отчётов</li>
+<li>Преобразование в литературный стиль и интеграция в Quarto</li>
+</ol>
+<h2 id="%D1%80%D0%B5%D0%B7%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%82%D1%8B-%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80">Результаты (повтор)</h2>
+<ul>
+<li>Получены графики динамики S, I, R для обоих типов симуляции</li>
+<li>Построена зависимость пика I от β</li>
+<li>Создана анимация распространения эпидемии</li>
+<li>Сгенерированы Jupyter Notebook и Quarto-документы</li>
+</ul>
+<h2 id="%D0%B8%D1%82%D0%BE%D0%B3%D0%BE%D0%B2%D1%8B%D0%B9-%D1%81%D0%BB%D0%B0%D0%B9%D0%B4">Итоговый слайд</h2>
+<p><strong>Главное сообщение</strong><br>
+Сети Петри в сочетании с детерминированным и стохастическим моделированием позволяют гибко и наглядно исследовать эпидемические процессы, а литературное программирование обеспечивает полную воспроизводимость результатов.</p>
+<h1 id="%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D1%83%D1%8E">Рекомендую</h1>
+<h2 id="%D0%BF%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-102030">Принцип 10/20/30</h2>
+<ul>
+<li>10 слайдов (в данной презентации — больше для полноты, но можно сократить)</li>
+<li>20 минут на доклад</li>
+<li>30 кегль шрифта</li>
+</ul>
+<h2 id="%D1%81%D0%B2%D1%8F%D0%B7%D1%8C-%D1%81%D0%BB%D0%B0%D0%B9%D0%B4%D0%BE%D0%B2">Связь слайдов</h2>
+<div class="incremental">
+<ul>
+<li>Один слайд — одна мысль</li>
+<li>Каждый слайд имеет заголовок</li>
+<li>Не ссылаться на объекты с предыдущих слайдов</li>
+</ul>
+</div>
+<h2 id="%D0%BA%D0%BE%D0%BB%D0%B8%D1%87%D0%B5%D1%81%D1%82%D0%B2%D0%BE-%D1%81%D1%83%D1%89%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9">Количество сущностей</h2>
+<div class="incremental">
+<ul>
+<li>Человек помнит 7±2 элемента</li>
+<li>На слайде — не более 5 элементов или 5 групп</li>
+<li>Группируйте визуально</li>
+</ul>
+</div>
+<h2 id="%D0%BE%D0%B1%D1%89%D0%B8%D0%B5-%D1%80%D0%B5%D0%BA%D0%BE%D0%BC%D0%B5%D0%BD%D0%B4%D0%B0%D1%86%D0%B8%D0%B8">Общие рекомендации</h2>
+<div class="incremental">
+<ul>
+<li>Слайды дополняют выступление, а не дублируют его</li>
+<li>Информация краткая, чёткая, структурированная</li>
+<li>Не перегружать графикой и текстом</li>
+<li>Анимация — по минимуму</li>
+</ul>
+</div>
+<h2 id="%D0%BF%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85">Представление данных</h2>
+<div class="incremental">
+<ul>
+<li>Лучше: схема</li>
+<li>Хорошо: рисунок, график, таблица</li>
+<li>Текст — только если другие способы не подходят</li>
+</ul>
+</div>
+<hr>
+
+</body>
+</html>
