@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ЛР№7_Отчет_Ларина.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%D0%BE%D1%82%D1%87%D1%91%D1%82-%D0%BF%D0%BE-%D0%BB%D0%B0%D0%B1%D0%BE%D1%80%D0%B0%D1%82%D0%BE%D1%80%D0%BD%D0%BE%D0%B9-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5-%E2%84%967">Отчёт по лабораторной работе №7</h1>
+<p><strong>Модели M/M/c и Росса (системы массового обслуживания)</strong></p>
+<h2 id="1-%D1%86%D0%B5%D0%BB%D1%8C-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B">1. Цель работы</h2>
+<ul>
+<li>Реализовать аналитическое и имитационное моделирование многоканальной СМО M/M/c.</li>
+<li>Исследовать модель Росса с конечной популяцией машин, резервом и ремонтниками.</li>
+<li>Построить графики основных характеристик:
+<ul>
+<li>зависимость среднего времени ожидания от загрузки (M/M/c);</li>
+<li>среднее время до падения системы от числа резервных машин и ремонтников;</li>
+<li>динамику числа исправных машин, длины очереди и загрузки ремонтников.</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C-mmc">2. Модель M/M/c</h2>
+<h3 id="21-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%BE%D0%B5-%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B4%D0%BB%D1%8F-%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B5%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8-%D0%BE%D0%B6%D0%B8%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F">2.1. Аналитическое выражение для среднего времени ожидания</h3>
+<p>Для системы с интенсивностью входного потока λ, интенсивностью обслуживания μ и числом каналов <strong>c</strong> среднее время ожидания в очереди вычисляется по формуле Эрланга:</p>
+<p>[
+W_q = \frac{(c\rho)^c \rho}{c! (1-\rho)^2 \lambda} P_0, \quad \rho = \frac{\lambda}{c\mu}
+]</p>
+<h3 id="22-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8-wqlambda">2.2. График зависимости (W_q(\lambda))</h3>
+<p>На рисунке показано, как растёт время ожидания при приближении λ к пропускной способности системы ((c\mu = 1.0)).</p>
+<p><img src="mmc_Wq_vs_lambda.png" alt="Зависимость Wq от λ в системе M/M/c"></p>
+<p><em>Рис. 1 – Резкий рост времени ожидания вблизи λ = 1 (μ = 0.5, c = 2).</em></p>
+<h2 id="3-%D0%BC%D0%BE%D0%B4%D0%B5%D0%BB%D1%8C-%D1%80%D0%BE%D1%81%D1%81%D0%B0">3. Модель Росса</h2>
+<p>Модель описывает систему из <strong>N</strong> работающих машин, <strong>S</strong> резервных и <strong>R</strong> ремонтников.<br>
+Каждая машина выходит из строя с интенсивностью λ (среднее время жизни 1/λ).<br>
+Ремонт одной машины занимает в среднем 1/μ времени.<br>
+При отсутствии резерва (число исправных машин становится меньше N) система падает.</p>
+<h3 id="31-%D0%B7%D0%B0%D0%B2%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D1%8C-%D1%81%D1%80%D0%B5%D0%B4%D0%BD%D0%B5%D0%B3%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8-%D0%B4%D0%BE-%D0%BF%D0%B0%D0%B4%D0%B5%D0%BD%D0%B8%D1%8F-%D0%BE%D1%82-%D1%87%D0%B8%D1%81%D0%BB%D0%B0-%D1%80%D0%B5%D0%B7%D0%B5%D1%80%D0%B2%D0%BE%D0%B2-s">3.1. Зависимость среднего времени до падения от числа резервов S</h3>
+<p>График построен для разных количеств ремонтников (R = 1, 2, 3). Видно, что увеличение и резерва, и числа ремонтников значительно повышает живучесть системы.</p>
+<p><img src="ross_crash_time_vs_S.png" alt="Среднее время до падения vs S"></p>
+<p><em>Рис. 2 – Логарифмический рост времени до падения с ростом S; увеличение R даёт дополнительный эффект.</em></p>
+<h3 id="32-%D0%B4%D0%B8%D0%BD%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0-%D1%87%D0%B8%D1%81%D0%BB%D0%B0-%D0%B8%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BD%D1%8B%D1%85-%D0%BC%D0%B0%D1%88%D0%B8%D0%BD-%D0%B2%D0%BE-%D0%B2%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%B8">3.2. Динамика числа исправных машин во времени</h3>
+<p>Один из реализаций случайного процесса при N = 10, S = 3, R = 1.<br>
+Скачкообразные уменьшения – отказы, увеличения – окончания ремонта.</p>
+<p><img src="ross_working_dynamics.png" alt="Динамика числа исправных машин"></p>
+<p><em>Рис. 3 – Ступенчатый процесс, отображающий эволюцию числа работающих и резервных машин.</em></p>
+<h3 id="33-%D0%BE%D1%87%D0%B5%D1%80%D0%B5%D0%B4%D1%8C-%D0%BD%D0%B0-%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82-%D0%BF%D1%80%D0%B8-r--2">3.3. Очередь на ремонт при R = 2</h3>
+<p>Показывает, сколько сломанных машин ожидают, когда освободится хотя бы один из двух ремонтников.</p>
+<p><img src="ross_queue_length.png" alt="Очередь на ремонт"></p>
+<p><em>Рис. 4 – Временные колебания длины очереди; при интенсивных отказах очередь растёт.</em></p>
+<h3 id="34-%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D1%80%D0%B5%D0%BC%D0%BE%D0%BD%D1%82%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2-r--2">3.4. Загрузка ремонтников (R = 2)</h3>
+<p>Число одновременно занятых ремонтников (0, 1 или 2). В среднем ремонтники загружены не полностью, но в моменты массовых отказов работают оба.</p>
+<p><img src="ross_repair_utilization.png" alt="Загрузка ремонтников"></p>
+<p><em>Рис. 5 – Дискретный процесс, показывающий периоды простоя и полной занятости ремонтников.</em></p>
+<h2 id="4-%D0%B2%D1%8B%D0%B2%D0%BE%D0%B4%D1%8B">4. Выводы</h2>
+<ul>
+<li>Модель M/M/c демонстрирует классическое поведение: при приближении интенсивности входного потока к пропускной способности время ожидания стремится к бесконечности.</li>
+<li>В модели Росса увеличение резервных машин (S) экспоненциально увеличивает среднее время до падения. Добавление дополнительных ремонтников также повышает устойчивость, но менее значительно.</li>
+<li>Число исправных машин во времени флуктуирует, а длина очереди на ремонт и загрузка ремонтников сильно зависят от соотношения интенсивностей отказов и ремонтов.</li>
+<li>Полученные графики полностью соответствуют теоретическим ожиданиям и могут быть использованы для оптимизации параметров резервирования в технических системах.</li>
+</ul>
+
+</body>
+</html>
